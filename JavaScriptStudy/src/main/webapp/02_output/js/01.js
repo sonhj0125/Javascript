@@ -1,5 +1,5 @@
 function myFunction() {
-    document.getElementById("name").innerHTML = "김다영";
+    document.getElementById("name").innerHTML = "손혜정";
 }
 
 function myClear() {

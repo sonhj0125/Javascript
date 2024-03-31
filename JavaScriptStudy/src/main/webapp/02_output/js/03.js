@@ -5,7 +5,7 @@ function myFunction() {
     // \n은 줄바꿈을 의미한다.
     alert("좋은 하루\n행복한 하루 되세요 :)");
 
-    document.getElementById("name").innerHTML = "김다영";
+    document.getElementById("name").innerHTML = "손혜정";
 }
 
 function myClear() {

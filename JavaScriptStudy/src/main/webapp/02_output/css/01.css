@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 span#name {
-    font-size: 16pt;
-    color: palevioletred;
+    font-size: 23pt;
+    color: rgb(206, 49, 88);
     font-weight: bold;
     font-style: italic;
 }
