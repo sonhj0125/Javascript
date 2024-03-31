@@ -35,6 +35,13 @@ function func_sum_correct() {
     console.log("확인용 num2 타입 : " + typeof(num2)); // string
     // typeof 변수명 또는 typeof(변수명) 은 변수명의 타입을 알려주는 것이다.
     
+    if(isNaN(Number(num1)) || isNaN(Number(num2))) {
+        alert("입력하려는 값은 두 개 모두 숫자로만 입력하셔야 합니다.");
+        func_clear();
+        return; // 함수 func_minus() 종료
+
+    }
+
     var sum = Number(num1) + Number(num2);
     // Number()가 없으면 숫자 덧셈이 아닌 !!문자열 결합!!으로 계산된다.
     // string 타입인 num1을 (정수, 실수 상관없이) 숫자 타입인 number 타입으로 바꿔주는 것이다.
@@ -62,7 +69,7 @@ function func_minus() {
     var num3 = document.getElementById("num3").value;
     var num4 = document.getElementById("num4").value;
 
-    if(Number(num3) * 0 != 0 || Number(num4) * 0 != 0) {
+    if(isNaN(Number(num3)) || isNaN(Number(num4))) {
         alert("입력하려는 값은 두 개 모두 숫자로만 입력하셔야 합니다.");
         func_clear_2();
         return; // 함수 func_minus() 종료
@@ -125,6 +132,13 @@ function func_multiple() {
         ES7은 2016년에 나왔지만 ES6과 ES7은 바뀐것이 거의 없음. 
         그래서 일반적으로 ES7이라고 부르지 않고 ES6이라고 부름.
     */
+
+    if(isNaN(num5) || isNaN(num6)) {
+        alert("입력하려는 값은 두 개 모두 숫자로만 입력하셔야 합니다.");
+        func_clear_3();
+        return; // 함수 func_minus() 종료
+
+    }
 
     // 키보드 숫자 1 왼쪽에 있는 ` 기호를 '백틱'이라고 한다.
     document.getElementById("multiple").innerHTML = 

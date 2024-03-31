@@ -21,8 +21,13 @@ function func_sum_correct() {
     const num2 = document.getElementById("num2").value;
     // DB에서 불러오는 값(변하면 안되는 값)은 const 사용!
 
-    
+    if(isNaN(Number(num1)) || isNaN(Number(num2))) {
+        alert("입력하려는 값은 두 개 모두 숫자로만 입력하셔야 합니다.");
+        func_clear();
+        return; // 함수 func_minus() 종료
 
+    }
+    
     document.getElementById("sum").innerHTML = 
     `<span style= "color: blue; font-weight:bold;">              
         ${Number(num1) + Number(num2)}
@@ -64,10 +69,11 @@ function func_minus() {
     // ~~~~~~확인용 num4 : 20
     // ~~~~~~확인용 num4 : NaN
 
-    if(num3 * 0 != 0 || num4 * 0 != 0) {
+    if(isNaN(num3) || isNaN(num4)) {
         alert("입력하려는 값은 두 개 모두 숫자로만 입력하셔야 합니다.");
         func_clear_2();
         return; // 함수 func_minus() 종료
+
     }
 
 
