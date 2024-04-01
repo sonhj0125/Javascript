@@ -136,7 +136,7 @@ window.onload = function() {
         // function() { } 부분을 핸들러(처리)라고 부른다.
       
         // alert("확인용 : 체크박스확인1에 마우스가 올라갔다가 빠졌군요~~");
-        
+
         this.style.backgroundColor = "";    // CSS에서 준 원래 색상 값으로 돌아간다.
         // this 는 "이벤트소스" 인 자기자신의 객체(btn_ok_1)를 가리키는 것이다.
     };
