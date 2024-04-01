@@ -118,6 +118,12 @@ window.onload = function() {
 
     // === 엘리먼트(객체)에 마우스가 올라가면 발생하는 이벤트 핸들러 생성하기 === //
     btn_ok_1.onmouseover = function() {
+        
+        // btn_ok_1 를 "이벤트소스" 라고 부른다. 
+        // onmouseover 를 "이벤트" 라고 부른다. 지금은 마우스가 올라가면 발생하는 이벤트이다. 
+        // function() { } 부분을 핸들러(처리)라고 부른다.
+      
+        // alert("확인용 : 체크박스확인1에 마우스가 올라갔군요~~");
 
         this.style.backgroundColor = "purple";
         // this 는 "이벤트소스" 인 자기자신의 객체(btn_ok_1)를 가리키는 것이다.
