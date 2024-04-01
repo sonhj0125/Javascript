@@ -262,6 +262,7 @@ const val_26 = document.getElementById("val_26").innerText;        // 문자열 
 const val_27 = document.getElementById("val_27").innerText;        // 문자열 "50"
 
 document.getElementById("result_27").innerHTML = func_sum(val_26, val_27);
+// 90
 
 console.log(typeof func_sum);
 // function
@@ -269,13 +270,91 @@ console.log(typeof func_sum);
 document.getElementById("type_27").innerHTML= typeof func_sum;
 
 
+
+///////////////////////////////////////////////////////////////////////
+
+
+// ==== 함수 호출하기 ==== //
+const val_28 = document.getElementById("val_28").innerText;        // 문자열 "60"
+const val_29 = document.getElementById("val_29").innerText;        // 문자열 "70"
+
+document.getElementById("result_29").innerHTML = func_minus(val_28, val_29);
+// 60-70 = -10
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+// === "화살표 함수" 란?
+   // ES6(ECMAScript 6)에서 처음으로 소개된 것으로써 화살표(=>)를 사용하여 함수를 선언하는 방법이다. 
+   // 다른말로 람다 표현식(lambda expression)이라고 부른다.
+   // 이것은 function 과 return 을 생략하기 위해서 개발한 것이다.
+
+    const func_multiply_1 = (num1, num2) => {
+        
+        if(isNaN(num1)) {
+            alert("첫번째 입력값은 숫자형태이어야 합니다.")
+            return;
+        }
+    
+    
+        if(isNaN(num2)) {
+            alert("두번째 입력값은 숫자형태이어야 합니다.")
+            return;
+        }
+
+        return`${Number(num1) * Number(num2)}`;
+        // 앞뒤에 백틱 `` 을 쓰고 백틱 속에 ${} 을 쓰고 {}속에 변수를 넣어준다.
+
+    };
+
+    const func_multiply_2 = (num1, num2) => { return`${Number(num1) * Number(num2)}`};
+
+    const func_multiply_3 = (num1, num2) =>  `${Number(num1) * Number(num2)}`;
+    // 함수의 내용물이 return 값만 있을 경우에는 {} 와 return 을 생략할 수 있다. 
+
+    const func_multiply_4 = num =>  `${Number(num) * 5}`;
+    // 매개변수가 1개만 있을 경우 ()를 생략할 수 있다.
+
+    const func_multiply_5 = () =>  {return 200};
+    // 매개변수가 없을 경우에는 ()를 사용해야 하며, return이 있을 경우 {}를 사용해야 한다.
+
+    const n1 = Number(document.getElementById("val_30").innerText); // 20
+    const n2 = Number(document.getElementById("val_31").innerText); // 30
+
+
+    document.getElementById("result_32").innerHTML = func_multiply_1(n1, n2);
+    document.getElementById("result_33").innerHTML = func_multiply_2(n1, n2);
+    document.getElementById("result_34").innerHTML = func_multiply_3(n1, n2);
+    document.getElementById("result_35").innerHTML = n1*func_multiply_4(6);
+    document.getElementById("result_36").innerHTML = func_multiply_5()*3;
+    
+    document.getElementById("type_37").innerHTML = typeof func_multiply_4;
+
+
 } // end of window.onload = function(){}
 
 
-// 자바스크립트에서 함수를 선언하는 방법2 : 함수 선언식(Function declaration)
-function func_minus() {
 
-}
+// 자바스크립트에서 함수를 선언하는 방법2 : 함수 선언식(Function declaration)
+function func_minus(num1, num2) {
+
+    if(isNaN(num1)) {
+        alert("첫번째 입력값은 숫자형태이어야 합니다.")
+        return;
+    }
+
+
+    if(isNaN(num2)) {
+        alert("두번째 입력값은 숫자형태이어야 합니다.")
+        return;
+    }
+
+    return Number(num1) - Number(num2);
+
+
+
+} // end of function func_minus(num1, num2);
 
 
 
