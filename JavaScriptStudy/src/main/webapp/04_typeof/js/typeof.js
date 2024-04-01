@@ -154,29 +154,155 @@ window.onload = function() {
 
     ///////////////////////////////////////////////////////////////////////
 
-    
+
     let val_13;
     // 자바스크립트에서 변수에 값을 넣지 않을 경우 
     document.getElementById("type_13").innerHTML = typeof val_13; // undefined
 
 
+    ///////////////////////////////////////////////////////////////////////
 
 
+    // ===== !!!! 자바스크립트에서 사용되어지는 객체 사용법 -1 !!!! ===== //
+
+ // const person1 = new Object();   // 자바스크립트에서 말하는 빈 객체이다.
+ // 또는 
+    const person1 = {};   // 주로 사용, 자바스크립트에서 말하는 빈 객체이다.
+    person1.userid = "leess";    // 객체에 새 속성을 추가하는 방법은 .표기법이 있다. 즉, 객체명.속성명 = 값; 으로 한다.
+    person1.pwd = 'qwer1234$';   // 객체에 새 속성을 추가하는 방법은 .표기법이 있다. 즉, 객체명.속성명 = 값; 으로 한다.
+//  person1.moblie phone = "010-5678-9987"; // 속성명에 공백을 추가하고 싶은 경우, 대괄호 표기법 사용
+    person1["moblie phone"] = "010-5678-9987";  // 객체에 새 속성을 추가하는 방법은 대괄호 표기법이 있다. 즉, 객체명["속성명"] = 값; 으로 한다.
+    person1["name"] = '이순신';       // 객체에 새 속성을 추가하는 방법은 대괄호 표기법이 있다. 즉, 객체명["속성명"] = 값; 으로 한다.
+    person1["age"] = 25;             // 객체에 새 속성을 추가하는 방법은 대괄호 표기법이 있다. 즉, 객체명["속성명"] = 값; 으로 한다.
+
+    document.getElementById("type_14").innerHTML = typeof person1;  // Object
+
+    document.getElementById("val_15").innerHTML = person1.userid;
+    document.getElementById("type_15").innerHTML = typeof person1.userid;
+
+    document.getElementById("val_16").innerHTML = person1.pwd;
+    document.getElementById("type_16").innerHTML = typeof person1.pwd;
+
+    document.getElementById("val_17").innerHTML = person1["moblie phone"];
+    document.getElementById("type_17").innerHTML = typeof person1["moblie phone"];
+
+/*
+    document.getElementById("val_18").innerHTML = person1["name"];
+    document.getElementById("type_18").innerHTML = typeof person1["name"];
+*/
+ // 또는
+    document.getElementById("val_18").innerHTML = person1.name;
+    document.getElementById("type_18").innerHTML = typeof person1.name;
+
+    document.getElementById("val_19").innerHTML = person1["age"];
+    document.getElementById("type_19").innerHTML = typeof person1["age"];
 
 
+    /////////////////////////////////////////////////////////////////////// 
 
 
+    // ===== !!!! 자바스크립트에서 사용되어지는 객체 사용법 -2 !!!! ===== //
+
+    // {속성명1 : 값1, 속성명2 : 값2, 속성명3 : 값3 } 이 자바스크립트에서 말하는 객체이다. 
+    const person2 = {userid : "eomjh",  // 속성명에 "", '', 없음 중 아무거나 사용 가능(공백이 있는 경우는 "" 나 '' 사용)
+                     pwd : 'abcd1234',
+                     "moblie phone" : '010-3456-7788',
+                     name : "엄정화",
+                     age : 27
+                    };
+
+    document.getElementById("type_20").innerHTML = typeof person2;  // Object
+
+    document.getElementById("val_21").innerHTML = person2.userid;
+    document.getElementById("type_21").innerHTML = typeof person2.userid;
+
+    document.getElementById("val_22").innerHTML = person2.pwd;
+    document.getElementById("type_22").innerHTML = typeof person2.pwd;
+
+    document.getElementById("val_23").innerHTML = person2["moblie phone"];
+    document.getElementById("type_23").innerHTML = typeof person2["moblie phone"];
+
+/*
+    document.getElementById("val_24").innerHTML = person2["name"];
+    document.getElementById("type_24").innerHTML = typeof person2["name"];
+*/
+ // 또는
+    document.getElementById("val_24").innerHTML = person2.name;
+    document.getElementById("type_24").innerHTML = typeof person2.name;
+
+    document.getElementById("val_25").innerHTML = person2["age"];
+    document.getElementById("type_25").innerHTML = typeof person2["age"];
 
 
+    ///////////////////////////////////////////////////////////////////////
+                    
+
+    // === !!!! 자바스크립트에서는 함수도 변수에 넣을 수 있다. !!!! === //
+
+    // 자바스크립트에서 함수를 선언하는 방법1 : 함수 표현식(Function expression)
+    const func_sum = function(num1, num2) {
+
+    if(isNaN(num1)) {
+        alert("첫번째 입력값은 숫자형태이어야 합니다.")
+        return;
+    }
 
 
+    if(isNaN(num2)) {
+        alert("두번째 입력값은 숫자형태이어야 합니다.")
+        return;
+    }
+
+    return Number(num1) + Number(num2);
+
+};
+
+// ==== 함수 호출하기 ==== //
+const val_26 = document.getElementById("val_26").innerText;        // 문자열 "40"
+const val_27 = document.getElementById("val_27").innerText;        // 문자열 "50"
+
+document.getElementById("result_27").innerHTML = func_sum(val_26, val_27);
+
+console.log(typeof func_sum);
+// function
+
+document.getElementById("type_27").innerHTML= typeof func_sum;
 
 
+} // end of window.onload = function(){}
 
 
-
-
-
+// 자바스크립트에서 함수를 선언하는 방법2 : 함수 선언식(Function declaration)
+function func_minus() {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
