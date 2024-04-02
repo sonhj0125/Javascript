@@ -177,18 +177,6 @@ window.onload = function() {
 
         displayid.innerHTML = html;
     };
-
-
-
-
-
-
-
-
-
-
-
-
     // === 과일을 맨 마지막에 추가하기[push()] 끝 === //
 
 
@@ -198,11 +186,65 @@ window.onload = function() {
     // === 과일을 맨 처음에 추가하기[unshift()] 시작 === //
     document.querySelector("button#btn_first_add").onclick = function() {
 
+        const addVal = document.querySelector("input[id='addVal']").value;
+
+        if(addVal.trim() == "") {   // "문자열".trim()은 문자열의 좌,우의 공백이 있으면 좌,우 공백을 모두 제거해주는 것이다.
+            alert("경고 : 과일명을 입력하세요!!");
+            return; // 종료
+        }
+        else {
+            arr_fruit.unshift(addVal); // 배열명.push() : 배열의 맨 처음에 새로운 요소를 추가한 후, 변경된 배열의 길이를 리턴시켜줌.
+            // console.log(arr_fruit); // (6) ['키위', '사과', '딸기', '메론', '참외', '수박' ]
+
+            func_view_2(arr_fruit, fruitDisplay);   // 만들어야 할 함수
+            document.querySelector("input[id='addVal']").value = "";
+            document.querySelector("input[id='addVal']").focus();
+        }
     };
 
+    // === Function Expression(함수 표현식) === //
+    const func_view_2 = (arr, displayid) => {
 
+        let html = `<ol>`;
 
+        for(let item of arr) {
+            html += `<li>${item}</li>`;
+        } // end of for(let item of arr)
+
+        html += `</ol>`;
+
+        displayid.innerHTML = html;
+    };
     // === 과일을 맨 처음에 추가하기[unshift()] 끝 === //
 
+
+
+
+
+    // === 과일을 배열의 특정 위치에 추가하기[splice()] 시작 === //
+    document.querySelector("button#btn_special_add").onclick = function() {
+
+    // 배열명.splice() : 배열의 특정 위치에 배열 요소를 추가하거나 삭제하는데 사용한다. 
+    //                  삭제할 경우 리턴값은 삭제한 배열 요소이다. 삭제한 요소가 없으면 빈 배열( [] )을 반환한다.
+    /*
+    // 배열명.splice(start, 0, element);  // 배열의 특정 위치에 배열 요소를 추가하는 경우 
+                    start   - 수정할 배열 요소의 인덱스
+                    0       - 요소를 추가할 경우
+                    element - 배열에 추가될 요소
+            
+    // 배열명.splice(start, deleteCount); // 배열의 특정 위치의 배열 요소를 삭제하는 경우    
+                    start   - 수정할 배열 요소의 인덱스
+                    deleteCount - 삭제할 요소 개수
+    */
+
+        arr_fruit.splice(2, 0 , "밤", "감", "대추");    
+        // 배열 arr_fruit 의 인덱스 번호 2 에 "밤","감","대추"을 추가하겠다. 
+
+        // console.log(arr_fruit); // (8) ['사과', '딸기', '밤', '감', '대추', '메론', '참외', '수박']
+
+        func_view_2(arr_fruit, fruitDisplay);
+
+    };
+    // === 과일을 배열의 특정 위치에 추가하기[splice()] 끝 === //
 
 } // end of window.onload = function() {}
