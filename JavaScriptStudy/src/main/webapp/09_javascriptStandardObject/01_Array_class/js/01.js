@@ -66,7 +66,7 @@ window.onload = function() {
 
 
     //  배열명.forEach(function(item, index, array){}); 아주아주 많이 사용!!
-    /*  item  - 현재 처리 중인 배열의 각 요소  
+    /*  item  - 현재 처리 중인 배열의 각 요소  // item 대신 들어올 수 있는 것 : elmt (nodelist 일때)
         index - (optional) 처리 중인 요소의 인덱스 
         array - (optional) forEach()가 적용되고 있는 배열 */
 
