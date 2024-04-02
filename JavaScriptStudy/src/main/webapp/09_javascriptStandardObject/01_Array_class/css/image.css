@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+div#container {
+   border: solid 0px gray;
+   width: 80%;
+   margin: 4% auto;
+}
+
+div#container > table {
+	border: solid 0px orange;
+	width: 50%;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+
+div#container > table th {
+	border: solid 1px orange;
+}
+
+div#container > table th {
+	height: 40px;
+	font-size: 14pt;
+}
+
+div#container > table td {
+	height: 200px;
+	text-align: center;
+}
+
+div#container > table td > img {
+	border: solid 0px red;
+	
+	border-radius: 50%; /* 절반씩 깍음 -> 타원이 된다. */
+	
+	/* border-radius 는 테두리를 둥글게 만드는 속성이다. */
+	
+	/* border-radius: top-left-x top-right-x bottom-right-x bottom-left-x / top-left-y top-right-y bottom-right-y bottom-left-y */
+	/* border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px; */
+	/* 또는 아래처럼 하면 같은 것이다. */
+	/* border-radius: 20px; */
+	
+	opacity: 0.2; /* 광도, 그림을 희미하게 만듦 */
+	/* 광도  0.0 ~ 1.0  숫자가 적을수록 희미해진다.  0.0 은 투명, 1.0 은 원래 광도이다. */
+	
+	  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
