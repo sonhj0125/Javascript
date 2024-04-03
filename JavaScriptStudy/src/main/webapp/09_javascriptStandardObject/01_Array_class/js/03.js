@@ -231,53 +231,58 @@ window.onload = function() {
     // {userid: 'seokj', passwd: 'qwer1234$', name: '서강준', age: 23}
 
     if(idx != -1) {
-    for(let property_name in arr_member[idx]) {
-    console.log(arr_member[idx][property_name]);
-    }
+        for(let property_name in arr_member[idx]) {
+            console.log(arr_member[idx][property_name]);
+        }
     }
     /*
-    seokj
-    qwer1234$
-    서강준
-    23
+        seokj
+        qwer1234$
+        서강준
+        23
     */
 
-    idx = arr_member.findIndex(item => item.userid == "munsaehan"); 
+    idx = arr_member.findIndex(item => item.userid == "sonhyejeong"); 
     console.log(idx);
     // -1
 
     if(idx == -1) {
-    console.log("userid 가 munsaehan 인 회원은 없습니다.");
+        console.log("userid 가 sonhyejeong 인 회원은 없습니다.");
     }
     else {
-    console.log(arr_member[idx]);
+        console.log(arr_member[idx]);
     }
-    // userid 가 munsaehan 인 회원은 없습니다.
+    // userid 가 sonhyejeong 인 회원은 없습니다.
 
 
-    // ---- **** 배열명.some() **** ----
+    //////////////////////////////////////////////////////////////
+
+
+    // ---- **** 배열명.some() **** ---- 복수개
     // 배열명에서 판별함수의 조건에 만족하는 배열요소가 하나라도 있으면 true 를 리턴 시켜주고 조건검사를 중지한다.
     // 배열명에서 판별함수의 조건에 만족하는 배열요소가 하나라도 없으면 false 를 리턴 시켜준다.
 
     arr_member.push({userid:"teen", 
-    passwd:"qwer1234$", 
-    name:"나어려", 
-    age:12});    
+                     passwd:"qwer1234$", 
+                     name:"나어려", 
+                     age:12});    
 
     let bool = arr_member.some(item => item.age < 20);
 
     console.log(bool);
-    // true
+    // true     
 
     if( arr_member.some(item => item.age < 20) ) {
-    console.log("회원중에 20대 미만인 회원이 존재합니다.");
+        console.log("회원중에 20대 미만인 회원이 존재합니다.");
     }
     else {
-    console.log("모든 회원들의 나이는 20세 이상입니다.");
+        console.log("모든 회원들의 나이는 20세 이상입니다.");
     }
     // 회원중에 20대 미만인 회원이 존재합니다.
 
 
+    //////////////////////////////////////////////////////////////
+    
 
     // ---- **** 배열명.every() **** ----
     // 배열명에서 판별함수의 조건에 만족하는 배열요소가 하나라도 없으면 false 를 리턴 시켜주고 조건검사를 중지한다.
@@ -292,10 +297,10 @@ window.onload = function() {
     // false
 
     if( arr_member.every(item => item.age >= 10) ) {
-    console.log("모든 회원들의 나이는 10세 이상입니다.");
+        console.log("모든 회원들의 나이는 10세 이상입니다.");
     }
     else {
-    console.log("회원중에 나이가 10세 미만인 회원이 존재합니다.");
+        console.log("회원중에 나이가 10세 미만인 회원이 존재합니다.");
     }
     // 모든 회원들의 나이는 10세 이상입니다.
 
