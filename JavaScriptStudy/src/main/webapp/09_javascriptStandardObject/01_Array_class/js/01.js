@@ -770,7 +770,7 @@ window.onload = function() {
     const word_result_arr = [];
    
     for(let word of word_arr) {
-        const index = word.trim().indexOf("o", 1);  // indexOf("찾고자하는 문자열", 출발인덱스)
+        const index = word.trim().indexOf("o", 1);  // 두번째글자가 "o" 인 것만, indexOf("찾고자하는 문자열", 출발인덱스)
         if(index == 1) {
             word_result_arr.push(word.trim());
         }
@@ -787,9 +787,5 @@ window.onload = function() {
         document.querySelector("div#word_list").innerHTML = word_html;
     }
     // ==================== 퀴즈 -2 끝 ==================== //
-
-
-
-
 
 } // end of window.onload = function() {}
