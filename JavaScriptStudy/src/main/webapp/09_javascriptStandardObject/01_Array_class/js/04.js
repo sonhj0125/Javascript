@@ -60,8 +60,21 @@ window.onload = function() {
             이렇게 undefined 가 나오지 않도록 하기 위해서 우리는 노드에 id 값을 주어서 처리하도록 한다. 
       */
 
-        // 단가가 얼마인지 알고 싶음
-        alert(e.target.parentNode.innerText);
+            
+        // 단가가 얼마인지 알아보기
+        // alert(e.target.parentNode.innerText);   
+        // "1,000" "2,000" => 문자열 출력, 콤마를 빼야함
+        // ["1", "000"] 콤마를 기준으로 split
+        // join 으로 합치기 "1000"
+        // Number 로 변환 "1000" -> 1000
+
+        let price = e.target.parentNode.innerText;  // "1,000"
+        price = Number(price.split(",").join(""));   // ["1","000"] => "1000" => 1000 
+        
+        alert(price);
+        alert(typeof price);
+
+        
 
     });
 
