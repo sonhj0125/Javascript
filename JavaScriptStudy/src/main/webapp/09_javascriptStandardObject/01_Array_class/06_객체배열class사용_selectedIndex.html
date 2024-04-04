@@ -201,20 +201,28 @@
                             </ul>`;
 
                     document.querySelector("div#information").innerHTML = html;
-                    click 
-
-
-
-
+                    
 
                 });
 
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                
+                /* ★★★ !!!!! >>>>> 중요 <<<<<< !!!!!
+      
+                 >>>> 자바스크립트에서 자동으로 select 태그에 change 이벤트 발생 시키기 <<<<
+                    document.querySelector("select#select").value = "아이유";
+                    document.querySelector("select#select").dispatchEvent(new Event('change'));
 
+                 >>>> jQuery 에서 자동으로 select 태그에 change 이벤트 발생 시키기 <<<<
+                    $("select#select").val("아이유").trigger('change');
+                */
 
+                // 위에서 이미 
+                // const select_obj = document.querySelector("select#select"); 라고 만들어 두었다.
+                select_obj.value = "아이유";
+                select_obj.dispatchEvent(new Event('change'));
 
         } // end of window.onload = function(){}
-
-
 
 
     </script>
