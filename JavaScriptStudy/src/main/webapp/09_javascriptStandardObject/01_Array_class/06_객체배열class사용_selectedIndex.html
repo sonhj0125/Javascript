@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class 를 사용하여 객체를 만들고 select 태그를 이용해 선택한 인물의 이미지 및 정보가 화면에 나타나도록 한다.</title>
+
+    <link rel ="stylesheet" href="css/06.css">
+
+    <script type ="text/javascript">
+
+        window.onload = function() {
+            /*    
+                const arr_person = [{name:"아이유", photo:"iyou.jpg",   age:28, address:"서울시 강동구", special:"가수 겸 탤런트<br/>팬들이 많음"},
+                                    {name:"김태희", photo:"kimth.jpg",  age:27, address:"서울시 강서구", special:"탤런트<br/>팬들이 많음"},
+                                    {name:"박보영", photo:"parkby.jpg", age:26, address:"서울시 강남구", special:"탤런트 및 영화배우<br/>팬들이 많음"}]; 
+            */
+
+            // 위의 처럼 하지 않고 ES6(ECMAScript 6) 나온 class 를 사용하여 만들어 보겠다.
+
+            // JavaScript Class 는 ES6(ECMAScript 6) 이다.
+            /* 
+                >> 문법 << 
+                class ClassName {
+                    
+                    속성명 = 초기값;
+                    
+                    constructor() { ... }
+                    
+                    set xxx(value) {  // 세터
+                    this.속성명 = value;
+                    }
+                    
+                    get xxx() { return this.속성명; }  // 게터
+                    
+                    method_1() { ... }
+                    method_2() { ... }
+                    method_3() { ... }
+                }
+            */
+
+                class Member {
+                    // birthYear = 0;  // birthYear 의 접근제한자는 public 이며, 외부에서도 접근이 가능하다.
+
+                    #birthYear = 0;    // birthYear 의 접근제한자는 private 이며, 이것은 클래스안에서만 접근이 가능하다.
+                                       // 접근제한자 private 은 속성(프로퍼티)명 앞에 # 을 붙인다.  
+
+                    // 생성자 함수
+                    constructor(name, photo, age, address, special) { 
+                        this.name = name;
+                        this.photo = photo;
+                        this.age = age;
+                        this.address = address;
+                        this.special = special;
+                    }
+
+                    // setter 세터
+                    set setBirthYear(value){
+
+                        if(isNaN(value)){
+                            throw new Error('생년은 숫자로만 가능합니다.');
+                        }
+                        else {
+                            if(value <= 0) {
+                                throw new Error('생년은 0 또는 음수가 될 수 없습니다.');    
+                                // 사용자가 정의하는 오류를 발생시킨다. F12(개발자도구) 콘솔창에 오류메시지가 나타난다.
+                            }
+                            else {
+                                this.#birthYear = value;
+                            }
+                        }
+                    } // end of set setBirthYear(value){}
+
+                    // getter 게터
+                    get getBirthYear(){
+                        return this.#birthYear;
+                    } // end of get getBirthYear(){}
+
+
+
+                    // 나이를 알려주는 함수
+                    age() {
+                        const currentDate = new Date(); // 자바스크립트에서 현재 날짜및시각을 알아오는 것
+                        // currentDate.getFullYear(); // 현재 년도 이다.
+
+                        return currentDate.getFullYear() - this.#birthYear + 1;     // 현재 한국나이
+                    } // end of age
+                } // end of class Member{}
+
+
+                const iyou_mbr = new Member("아이유", "iyou.jpg", "서울시 강동구", "가수 겸 탤런트&nbsp;팬들이 많음");
+                // iyou_mbr.birthYear  = -1995;     // birthYear 은 public 이므로 외부에서 직접적으로 접근이 가능하다. 그러므로 생년에 음수도 입력이 가능함.
+
+                // iyou_mbr.#birthYear = 1995; // #birthYear 은 private 이므로 외부에서 직접적으로 접근이 불가하다.
+                /* Uncaught SyntaxError: Private field '#birthYear' must be declared in an enclosing class */
+
+                
+
+
+
+        } // end of window.onload = function(){}
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
