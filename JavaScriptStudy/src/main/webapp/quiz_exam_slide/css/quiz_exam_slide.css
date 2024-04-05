@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+div#timer {
+	/* 	border: solid 1px gray; */
+		padding: 30px 0 0 20px;
+		color: #cc3300;
+		font-size: 18pt;
+    font-weight: bold;
+} 
+
+div#container {
+    border: solid 0px green; 
+    width: 70%; 
+    margin: 5% auto; /**중앙 정렬한다.**/
+    
+}
+
+div#quiz_display {
+  border: solid 0px yellow;
+  display: flex;  /* 좌우 슬라이드를 위해 flex로 사진을 가로정렬한다. */
+  width: 3700px;
+  height: 350px;  /* 이미지들의 height 는 화면상에 보여지는 장소인 위의 slide와 height 와 동일하게 설정한다. */
+  transition: transform 2s;  
+}
+
+div#slide {     
+  border: solid 1px purple;
+  background-color: rgb(245, 222, 227);
+  width: 900px;     /* 이미지보다 크면 다음 이미지까지 표시되므로 slide 크기를 img 크기와 동일하게 설정해야 한다. */
+  height: 350px;    /* 이미지보다 크면 다음 이미지까지 표시되므로 slide 크기를 img 크기와 동일하게 설정해야 한다. */
+  overflow: hidden;  /* overflow: hidden을 사용하여 width: 900px; 을 넘어서 보여지는 사진들을 안보이도록 만든다. */
+}
+
+div#quiz {
+  border: solid 0px blue;
+  width: 900px;
+  height: 350px;
+  font-size: 14pt;
+  text-align: center;
+}
+
+/* 버튼디자인 */
+button {
+  border: solid 1px #817d7d;
+  width: 50px; 
+  height: 50px;
+  background-color: #817d7d;
+  color: white;
+  font-size: 20pt;
+  border-radius: 50%;
+}
+
+button:active { /* 버튼을 클릭하는 동안 색을 바꾼다. */
+  background-color:#4981c2;
+}
+
+button:disabled { /* 버튼 속성이 disabled되면 색을 바꾼다. */
+  background-color: #cbcaca;
+}
+
+button#btnSubmit {
+  border: solid 1px tomato; 
+  background-color: #f14f4f;
+  font-size: 13pt;
+  color: white; 
+  width: 10%; 
+  border-radius: 5px;
+}
+
+button#btnSubmit:hover {
+cursor: pointer;
+background-color: rgb(83, 124, 214);
+}
+
+span#warning {
+border: solid 0px red;
+margin-left: 10px;
+padding: 5px 10px;
+font-size: 10pt;
+font-weight: bold;
+}
