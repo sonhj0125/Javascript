@@ -4,7 +4,7 @@ window.onload = function(){
 
 	const h2_timer = document.querySelector("h2#timer"); // 타이머를 보여줄 장소 
 	 
-	let time = 10; // 타이머 시간을 10분으로 지정함.
+	let time = 600; // 타이머 시간을 10분으로 지정함.
 	 
 	// === 타이머 함수 만들기 시작 === //
 	const timer = function() {
@@ -237,6 +237,7 @@ window.onload = function(){
 		 
 		 if(is_all_checked == false) { // 정답선택을 안한 것이 존재하는 경우  
 			 is_submit = confirm("정답을 선택안한 문제가 있습니다.\n그래도 제출을 하시겠습니까?");
+			 // alert 와 유사. 확인 누르면 true, 아니면 false
 		 }
 	  // == 정답선택을 안한 것이 존재하는지 알아보기 끝 == //
 	  ////////////////////////////////////////////////////////////////////////////////////////
@@ -274,7 +275,6 @@ window.onload = function(){
 	 const check = function() {
 	     
 	     let arr_result = [];  // 각 문항마다 결과정보를 저장하는 용도의 배열로써 시험결과를 보여주는 용도에 사용될 것임.
-	     let html_result = `<table>`;
 	     
 	     let answer_cnt = 0; // 정답개수 누적용 
 	     
@@ -366,10 +366,7 @@ window.onload = function(){
 		  });// end of arr_quizData.forEach()---------------------------------
 		  
 		  
-		  //////  === "제출하기" 버튼을 클릭하면 시험결과를 테이블로 만들어 출력해주기 시작 === ////
-		  html_result += `</table>`;
-		   
-		  
+		  //////  === "제출하기" 버튼을 클릭하면 시험결과를 테이블로 만들어 출력해주기 시작 === //////
 		  html = `<table>
 		             <tr>
 		             	<th width="20%">문제번호</th>`;
