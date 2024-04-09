@@ -57,7 +57,7 @@ window.onload = function () {
                     });
 
         html +=    `</td>
-                    <td>0</td>
+                    <td id='${item.productId}'>0</td>
                  </tr>`;
     }); // end of arr_product.forEach() ----------------
 
@@ -160,32 +160,62 @@ window.onload = function () {
                 if(elmt.checked && (elmt.name == 'option_' + input_number.id)) {
                     option_price += Number(elmt.value);
                 }
-            });
+            }); // end of checkbox_list.forEach(function(elmt){}
 
-            console.log("확인용 su_price => ", (su_price + option_price));
-
-            name="option_${item.productId}"
-
+            // console.log("확인용 su_price => ", (su_price + option_price));
 
 
             let total_price = 0;    // 제품 + 부속품 가격
 
+            // 주문수량이 0개 이라면 부속품 체크박스는 모두 체크해제로 만든다.
+            if(Number(input_number.value) == 0) {
+                checkbox_list.forEach(function(elmt){
+                    if(elmt.name == 'option_'+input_number.id){
+                        elmt.checked = false;
+                    }
+                    
+                }); // end of checkbox_list.forEach(function(elmt){}
+            }
+            else {  // 주문수량이 1개 이상 이라면 (제품수량*단가 + 체크박스에 체크된 부속품 가격)을 구해온다.
+                total_price = su_price + option_price;
+            }
+
+            document.querySelector("table#tbl td#" + input_number.id).innerHTML = total_price.toLocaleString('en');
 
 
+        }); // end of input_number.addEventListener('change', () => {}
 
-
-        });
-
-    } // end of for
+    } // end of for(let input_number of input_number_list) {}
     // 주문수량 이벤트 처리하기 끝 //
-
-
-
-
-
-
-
     // === 주문수량이 바뀌면 주문금액에 값을 넣어주기 그리고 부속품중 체크를 한 부속품에 대해서만 부속품 금액을 주문금액에 값을 넣어주기 끝 === //
+
+
+
+
+    // === 부속품 체크박스 이벤트 처리하기 시작 === // 
+    for(let checkbox of checkbox_list) {
+
+        checkbox.addEventListener('click', () => {
+            // console.log(checkbox.name); 
+            /*
+                option_led
+                option_camcorder
+            */
+
+            // 클릭한 체크박스의 name 에서 productId 만 가져오기
+            const id = checkbox.name.substring(7);
+            // console.log(id);
+            /* 
+                led
+                camcorder
+            */
+
+        }); // end of checkbox.addEventListener('click', () => {}
+
+    } // end of for(let checkbox of checkbox_list)
+   // === 부속품 체크박스 이벤트 처리하기 끝 === // 
+
+
 
 
 
