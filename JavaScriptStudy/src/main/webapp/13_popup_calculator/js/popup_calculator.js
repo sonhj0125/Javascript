@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 window.onload = function(){
 
     const arr_product = [ 
@@ -164,34 +160,35 @@ window.onload = function(){
           // console.log("확인용 su_price => ", su_price);
              
           // 주문수량에 변경을 준 제품에 대한 부속품 체크박스 중 체크가 되어진 부속품의 금액 알아오기 
-             let option_price = 0;
+            let option_price = 0;
 
-             checkbox_list.forEach(function(elmt){
-                if(elmt.checked && (elmt.name == 'option_'+input_number.id)) {
-                    option_price += Number(elmt.value); 
+            checkbox_list.forEach(function(elmt){
+            if(elmt.checked && (elmt.name == 'option_'+input_number.id)) {
+                option_price += Number(elmt.value); 
+            }
+            });
+        // console.log("확인용 su_price + option_price => ", (su_price + option_price) );    
+
+            let total_price = 0;
+
+            // 주문수량이 0 개 이라면 부속품 체크박스는 모두 체크해제로 만든다.
+            if(Number(input_number.value) == 0) {
+            checkbox_list.forEach(function(elmt){
+                if(elmt.name == 'option_'+input_number.id) {
+                    elmt.checked = false;
                 }
-             });
-          // console.log("확인용 su_price + option_price => ", (su_price + option_price) );    
- 
-             let total_price = 0;
+            });
+            }
 
-             // 주문수량이 0 개 이라면 부속품 체크박스는 모두 체크해제로 만든다.
-             if(Number(input_number.value) == 0) {
-                checkbox_list.forEach(function(elmt){
-                    if(elmt.name == 'option_'+input_number.id) {
-                        elmt.checked = false;
-                    }
-                });
-             }
+            // 주문수량이 1 개 이상 이라면 (제품수량*단가 + 체크박스에 체크된 부속품 가격)을 구해온다. 
+            else {
+            total_price = su_price + option_price;
+            }
 
-             // 주문수량이 1 개 이상 이라면 (제품수량*단가 + 체크박스에 체크된 부속품 가격)을 구해온다. 
-             else {
-                total_price = su_price + option_price;
-             }
-
-             document.querySelector("table#tbl td#"+input_number.id).innerHTML = total_price.toLocaleString('en'); 
+            document.querySelector("table#tbl td#"+input_number.id).innerHTML = total_price.toLocaleString('en'); 
               
-
+            // 모든 제품에 대한 주문총액 함수 호출하기
+            sumPrice();
 
         });// end of input_number.addEventListener('change', ()=>{})--------
 
@@ -243,16 +240,55 @@ window.onload = function(){
          
             let total_price = 0;
 
-
-            total_price = su_price + option_price;
+            if(su == '0'){
+                alert("주문수량이 0개 이므로 부속품을 선택할 수 없습니다.");
+                checkbox.checked = false;
+            }
+            else {
+                total_price = su_price + option_price;
+            }
 
             document.querySelector("table#tbl td#"+id).innerHTML = total_price.toLocaleString('en'); 
 
-        });
+            // 모든 제품에 대한 주문총액 함수 호출하기
+            sumPrice();
+
+        }); // end of checkbox.addEventListener('click', ()=>{}
 
     }// end of for--------------------------- 
     // === 부속품 체크박스 이벤트 처리하기 끝 === //
 
 
+    // === 모든 제품에 대한 주문총액 함수 만들기 시작 === //
+    const sumPrice = function(){
+
+        let sum = 0;
+
+        document.querySelectorAll("table#tbl > tbody > tr > td:last-child").forEach((elmt) => {
+            sum += Number(elmt.innerText.split(",").join(""));
+        });
+
+        document.querySelector("table#tbl > tfoot > tr > td:last-child").innerHTML = sum.toLocaleString('en');
+
+    }; // end of const sumPrice = function(){}
+    // === 모든 제품에 대한 주문총액 함수 만들기 끝 === //
+
+
+    // === 주문수량 keyup 이벤트 처리하기 === //
+    // 이벤트 소스인 document.querySelectorAll("table#tbl input[type='number']"); 를 input_number_list 로 위에서 선언해두었다.
+    /*
+        input_number_list.forEach((elmt) => {
+            elmt.addEventListener('keyup', function(){
+                alert("마우스로 입력해주세요.")
+                elmt.value = '0';
+            });
+        }); 또는
+    */
+    for(let input_number of input_number_list) {
+        input_number.addEventListener('keyup', () => {
+            alert("주문수량은 마우스로만 입력하세요.");
+            input_number.value = "0";
+        });
+    } // end of for
 
 }// end of window.onload = function(){}-----------------------
