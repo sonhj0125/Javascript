@@ -554,19 +554,13 @@ frm.onreset = function() {
     document.querySelectorAll("span.errmsg").forEach(elmt => {  // 복수개, nodelist 이므로 querySelectorAll에 for문
         elmt.innerHTML = "";    // 에러 메세지 지우기
     });
-
+ 
 }; // end of frm.onreset = function()
 // ========== 취소(reset) 클릭시 끝 ========== //
 
 
 
-
-
 }; // end of window.onload = function(){-----------------
-
-
-
-
 
 
 
